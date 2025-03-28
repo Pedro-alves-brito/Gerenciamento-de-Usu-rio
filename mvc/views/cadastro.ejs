@@ -28,23 +28,29 @@
                     <% } %>
                     
                     <h3>Cadastro</h3>
-                    <form action="/cadastrar" method="POST">
-                        <div class="mb-3">
-                            <input class="form-control" type="text" placeholder="Usuário" name="usuario" required>
+                    <form action="/cadastrar" method="post">
+                        <div class="modal-body">
+                            <p class="text-dark">Usuario</p>
+                            <input class="form-control me-2" type="search"aria-label="Search" id="conta" name="conta">
+                            <p class="text-dark">Senha</p>
+                            <input class="form-control me-2" type="search"aria-label="Search" id="Senha" name="Senha">
+                            <p class="text-dark">Email</p>
+                            <input class="form-control me-2" type="search"aria-label="Search" id="email" name="email">
+                            <p class="text-dark">autenticado</p>
+                            <input class="form-control me-2" type="search"aria-label="Search" value="0" id="autenticado" name="autenticado">
+                            <p class="text-dark">Grupo</p>
+                            <div class="mb-3">
+                                <select class="ui dropdown" name="grupo">
+                                    <option value="">Grupos</option>
+                                    <% for (let i = 0; i < grupo.length; i ++) { %>
+                                        <option value="<%= grupo[i].id %>">ID <%= grupo[i].id %> = <%= grupo[i].nome %></option>
+                                    <% } %>
+                                </select>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="text" placeholder="Email" name="email" required>
+                        <div class="modal-footer d-flex justify-content-evenly">
+                            <button type="submit" class="btn btn-primary">Criar</button>
                         </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="password" placeholder="Senha" name="senha" required>
-                        </div>
-                        <div class="mb-3">
-                            <select class="ui dropdown" name="grupo">
-                                <option value="">Gender</option>
-                                    <option value="<%= grupo.id %>"><%= grupo.nome %></option>
-                              </select>
-                        </div>
-                        <button class="btn btn-primary w-100" type="submit">Cadastrar</button>
                     </form>
                     
                     <div class="mt-3">

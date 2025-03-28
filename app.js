@@ -61,10 +61,8 @@ App.post("/logar", async (req, res) => {
                 });
             } else {
                 // Para usuário normal
-                res.render("index", {
-                    nome: usuario.usuario,
-                    texto: "Login realizado com sucesso!",
-                    usuarios: null
+                res.render("home", {
+                    usuarios: usuario
                 });
             }
             
@@ -101,6 +99,14 @@ App.post("/excluir", async (req, res) => {
         });
     }
 });
+
+App.get("/cadastro", async (req, res) =>{
+    const [grupos] = await pool.query('SELECT id, nome FROM grupo');
+    res.render("cadastro", {
+        erro: null,
+        grupo: grupos
+    });
+})
 
 // Rota para processar cadastro (POST)
 App.post("/cadastrar", async (req, res) => {
@@ -161,6 +167,10 @@ App.post("/atualzar", async (req, res) => {
 // Rota para a página de erro
 App.get("/error", (req, res) => {
     res.render("error");
+});
+
+App.post('/logout', (req, res) => {
+    res.redirect('/');
 });
 
 // Iniciar servidor
