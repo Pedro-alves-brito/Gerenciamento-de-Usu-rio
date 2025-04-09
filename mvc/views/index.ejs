@@ -84,7 +84,66 @@
                                 <td><%= usuario.grupo %></td>
                                 <td>
                                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<%= usuario.id %>">Excluir</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="excluir<%= usuario.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Excluir</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="/excluir" method="post">
+                                                <div class="modal-body">
+                                                    <input class="form-control me-2" type="hidden" value="<%= usuario.id %>" aria-label="Search" id="idconta" name="idconta">
+                                                    <h3 class="text-dark">Quer excluir a conta (<%= usuario.nome %>)?</h3>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar<%= usuario.id %>">Editar</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editar<%= usuario.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Editar</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="/atualzar" method="post">
+                                                <div class="modal-body">
+                                                    <input class="form-control me-2" type="hidden" value="<%= usuario.id %>" aria-label="Search" id="idconta" name="idconta">
+                                                    <p class="text-dark">Usuario</p>
+                                                    <input class="form-control me-2" type="search" value="<%= usuario.nome %>" aria-label="Search" id="conta" name="conta">
+                                                    <p class="text-dark">Senha</p>
+                                                    <input class="form-control me-2" type="search" value="<%= usuario.senha %>" aria-label="Search" id="Senha" name="Senha">
+                                                    <p class="text-dark">Email</p>
+                                                    <input class="form-control me-2" type="search" value="<%= usuario.email %>" aria-label="Search" id="email" name="email">
+                                                    <p class="text-dark">autenticado ("0"=Não|"1"=Sim)</p>
+                                                    <input class="form-control me-2" type="search"aria-label="Search" value="<%= usuario.autenticado %>" id="autenticado" name="autenticado">
+                                                    <p class="text-dark">Grupo</p>
+                                                    <div class="mb-3">
+                                                        <select class="ui dropdown" name="grupo">
+                                                            <option value="">Grupos</option>
+                                                            <% for (let i = 0; i < grupo.length; i ++) { %>
+                                                                <option value="<%= grupo[i].id %>">ID <%= grupo[i].id %> = <%= grupo[i].nome %></option>
+                                                            <% } %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <% }); %>
