@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo G">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#" class="active">Jogar Online</a>
+                    </li>
+                    <li>
+                        <a href="#">Tutorial</a>
+                    </li>               
+                    <li>
+                        <a href="#">Comprar</a>
+                    </li>
+                </ul>
+            </nav>
+            <div>
+                <h2 class="title">Sandy</h2>
+            </div>
+        </header>
+        <main>
+            <canvas id="canvas"></canvas>            
+        </main>
+        <div class="chat-container">
+            <div class="chat-box">
+                <div class="chat-header">
+                    <h3>Chatbot</h3>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        <p>Olá! Como posso ajudar você hoje?</p>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+                    <button onclick="sendMessage()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+          }
+        }
+        </script>
+    <script type="module" src="js/main.js"></script>
+    <script  src="js/chatbot.js"></script>
+</body>
+</html>

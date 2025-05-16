@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/Auth.css">
+</head>
+<body>
+    <main class="login-container">
+        <% if (erro) { %>
+            <h1><%= erro %></h1>
+        <% } %>
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" id="usuario" required 
+                       placeholder="Digite seu nome de usuário" aria-describedby="usuario-help">
+                <small id="usuario-help" class="sr-only">Informe seu nome de usuário</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required 
+                       placeholder="Digite sua senha" aria-describedby="senha-help">
+                <small id="senha-help" class="sr-only">Informe sua senha</small>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+        <a href="/create">Criar Conta</a>
+    </main>
+</body>
+</html>
